@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
+
+/* Tailwind v4 */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-sage: var(--sage);
+  --color-sage-foreground: var(--sage-foreground);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-foreground: var(--terracotta-foreground);
+  --color-cream: var(--cream);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  /* Deep luxurious forest green */
+  --background: oklch(0.18 0.04 155);
+  --foreground: oklch(0.97 0.01 95);
+
+  --card: oklch(0.22 0.04 155);
+  --card-foreground: oklch(0.97 0.01 95);
+  --popover: oklch(0.22 0.04 155);
+  --popover-foreground: oklch(0.97 0.01 95);
+
+  /* Sage green accent */
+  --primary: oklch(0.48 0.09 155);
+  --primary-foreground: oklch(0.98 0.01 95);
+
+  --secondary: oklch(0.25 0.04 155);
+  --secondary-foreground: oklch(0.97 0.01 95);
+
+  --muted: oklch(0.28 0.03 155);
+  --muted-foreground: oklch(0.78 0.02 95);
+
+  --accent: oklch(0.55 0.1 155);
+  --accent-foreground: oklch(0.98 0.01 95);
+
+  --sage: oklch(0.5 0.09 155);
+  --sage-foreground: oklch(0.98 0.01 95);
+
+  --terracotta: oklch(0.68 0.13 45);
+  --terracotta-foreground: oklch(0.15 0.03 155);
+
+  --cream: oklch(0.97 0.015 85);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.5 0.09 155);
+
+  --gradient-hero: linear-gradient(180deg, oklch(0.15 0.04 155 / 0.55) 0%, oklch(0.12 0.04 155 / 0.92) 100%);
+  --gradient-deep: linear-gradient(135deg, oklch(0.18 0.04 155), oklch(0.22 0.05 155));
+  --shadow-luxe: 0 30px 80px -20px oklch(0.08 0.04 155 / 0.6);
+  --shadow-soft: 0 10px 40px -10px oklch(0.08 0.04 155 / 0.4);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .text-balance { text-wrap: balance; }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-deep { background: var(--gradient-deep); }
+  .shadow-luxe { box-shadow: var(--shadow-luxe); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .animate-fade-in { animation: fade-in 1.2s ease-out both; }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  .hover-lift { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.5s; }
+  .hover-lift:hover { transform: translateY(-6px); }
+}
