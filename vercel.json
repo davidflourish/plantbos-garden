@@ -4,7 +4,12 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/api/ssr"
     }
-  ]
+  ],
+  "functions": {
+    "api/ssr.js": {
+      "includeFiles": "dist/client/**"
+    }
+  }
 }
