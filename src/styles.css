@@ -2,11 +2,19 @@
 
 /* Tailwind v4 */
 @import "tailwindcss" source(none);
-@source "../src";
+
+/* Important: Proper source paths for Tailwind v4 */
+@source "src";
+@source "src/components";
+@source "src/routes";
+
+/* Third-party animations */
 @import "tw-animate-css";
 
+/* Custom variants */
 @custom-variant dark (&:is(.dark *));
 
+/* Theme configuration */
 @theme inline {
   --font-display: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
@@ -14,6 +22,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -40,41 +49,34 @@
   --color-ring: var(--ring);
 }
 
+/* CSS Variables */
 :root {
   --radius: 0.5rem;
+  
   /* Deep luxurious forest green */
   --background: oklch(0.18 0.04 155);
   --foreground: oklch(0.97 0.01 95);
-
   --card: oklch(0.22 0.04 155);
   --card-foreground: oklch(0.97 0.01 95);
   --popover: oklch(0.22 0.04 155);
   --popover-foreground: oklch(0.97 0.01 95);
-
+  
   /* Sage green accent */
   --primary: oklch(0.48 0.09 155);
   --primary-foreground: oklch(0.98 0.01 95);
-
   --secondary: oklch(0.25 0.04 155);
   --secondary-foreground: oklch(0.97 0.01 95);
-
   --muted: oklch(0.28 0.03 155);
   --muted-foreground: oklch(0.78 0.02 95);
-
   --accent: oklch(0.55 0.1 155);
   --accent-foreground: oklch(0.98 0.01 95);
-
   --sage: oklch(0.5 0.09 155);
   --sage-foreground: oklch(0.98 0.01 95);
-
   --terracotta: oklch(0.68 0.13 45);
   --terracotta-foreground: oklch(0.15 0.03 155);
-
   --cream: oklch(0.97 0.015 85);
-
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.5 0.09 155);
@@ -85,19 +87,23 @@
   --shadow-soft: 0 10px 40px -10px oklch(0.08 0.04 155 / 0.4);
 }
 
+/* Base styles */
 @layer base {
   * {
     border-color: var(--color-border);
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
@@ -105,29 +111,61 @@
   }
 }
 
+/* Utilities */
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
-  .text-balance { text-wrap: balance; }
-  .bg-gradient-hero { background: var(--gradient-hero); }
-  .bg-gradient-deep { background: var(--gradient-deep); }
-  .shadow-luxe { box-shadow: var(--shadow-luxe); }
-  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .font-display { 
+    font-family: var(--font-display); 
+  }
 
+  .text-balance { 
+    text-wrap: balance; 
+  }
+
+  .bg-gradient-hero { 
+    background: var(--gradient-hero); 
+  }
+
+  .bg-gradient-deep { 
+    background: var(--gradient-deep); 
+  }
+
+  .shadow-luxe { 
+    box-shadow: var(--shadow-luxe); 
+  }
+
+  .shadow-soft { 
+    box-shadow: var(--shadow-soft); 
+  }
+
+  /* Custom animations */
   @keyframes fade-up {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
   @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-  .animate-fade-in { animation: fade-in 1.2s ease-out both; }
+
+  .animate-fade-up { 
+    animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; 
+  }
+
+  .animate-fade-in { 
+    animation: fade-in 1.2s ease-out both; 
+  }
+
   .delay-100 { animation-delay: 0.1s; }
   .delay-200 { animation-delay: 0.2s; }
   .delay-300 { animation-delay: 0.3s; }
   .delay-500 { animation-delay: 0.5s; }
 
-  .hover-lift { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.5s; }
-  .hover-lift:hover { transform: translateY(-6px); }
+  .hover-lift {
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.5s;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+  }
 }
