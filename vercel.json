@@ -3,17 +3,8 @@
   "framework": "tanstack-start",
   "buildCommand": "npm run build",
   "rewrites": [
-    {
-      "source": "/assets/(.*)",
-      "destination": "/assets/$1"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/api/server"
-    }
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/api/server" }
   ]
 }
