@@ -8,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-import appCss from "@/routes/styles.css?url";   // ← Fixed import
+import appCss from "@/styles.css?url";
 
 function NotFoundComponent() {
   return (
